@@ -25,7 +25,7 @@ class Mobil extends Kendaraan {
     }
     
     public function __construct($merek) {
-        parent::__construct($merek, "Merah");
+        parent::__construct($merek, "Biru");
     }
 }
 
