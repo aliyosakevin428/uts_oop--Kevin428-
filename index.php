@@ -21,7 +21,7 @@ class Drum {
 
 class DrumAkustik extends Drum {
     public function bunyi() {
-        echo "{$this->merek}: Boom pakh!\n";
+        echo "{$this->merek}: Boom Takh Takh!\n";
     }
     
     public function __construct($merek) {
@@ -31,7 +31,7 @@ class DrumAkustik extends Drum {
 
 class DrumElektronik extends Drum {
     public function bunyi() {
-        echo "{$this->merek}: Beep boop!\n";
+        echo "{$this->merek}: Beep buup boop!\n";
     }
 
     public function __construct($merek) {
