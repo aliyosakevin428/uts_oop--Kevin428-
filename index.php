@@ -1,52 +1,52 @@
 <?php
 
-class Kendaraan {
+class Drum {
     protected $merek;
-    public $warna;
+    protected $jenis;
     
-    public function __construct($merek, $warna) {
+    public function __construct($merek, $jenis) {
         $this->merek = $merek;
-        $this->warna = $warna;
-        echo "Kendaraan {$merek} siap digunakan\n";
+        $this->jenis = $jenis;
+        echo "Drum {$merek} {$jenis} siap dimainkan\n";
     }
     
-    public function jalan() {
-        echo "{$this->merek} sedang berjalan\n";
+    public function mainkan() {
+        echo "Memainkan drum {$this->merek}\n";
     }
 
-    public function warna() {
-        echo "{$this->merek} berwarna {$this->warna}\n";
+    public function infoJenis() {
+        echo "Drum {$this->merek} berjenis {$this->jenis}\n";
     }
 }
 
-class Mobil extends Kendaraan {
-    public function klakson() {
-        echo "{$this->merek}: Beep Beep!\n";
+class DrumAkustik extends Drum {
+    public function bunyi() {
+        echo "{$this->merek}: Boom pakh!\n";
     }
     
     public function __construct($merek) {
-        parent::__construct($merek, "Biru");
+        parent::__construct($merek, "Akustik");
     }
 }
 
-class Motor extends Kendaraan {
-    public function klakson() {
-        echo "{$this->merek}: Tiiin!\n";
+class DrumElektronik extends Drum {
+    public function bunyi() {
+        echo "{$this->merek}: Beep boop!\n";
     }
 
     public function __construct($merek) {
-        parent::__construct($merek, "Hitam Legam");
+        parent::__construct($merek, "Elektronik");
     }
 }
 
-echo "=== Mobil ===\n";
-$avanza = new Mobil("Avanza");
-$avanza->jalan();
-$avanza->klakson();
-$avanza->warna();
+echo "=== Drum Akustik ===\n";
+$yamaha = new DrumAkustik("Yamaha");
+$yamaha->mainkan();
+$yamaha->bunyi();
+$yamaha->infoJenis();
 
-echo "\n=== Motor ===\n";
-$beat = new Motor("Beat");
-$beat->jalan();
-$beat->klakson();
-$beat->warna();
+echo "\n=== Drum Elektronik ===\n";
+$roland = new DrumElektronik("Roland");
+$roland->mainkan();
+$roland->bunyi();
+$roland->infoJenis();
