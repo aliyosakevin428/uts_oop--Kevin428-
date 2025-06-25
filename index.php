@@ -7,31 +7,34 @@ class Drum {
     public function __construct($merek, $jenis) {
         $this->merek = $merek;
         $this->jenis = $jenis;
-        echo "Drum {$merek} {$jenis} siap dimainkan\n";
     }
     
-    public function mainkan() {
-        echo "Memainkan drum {$this->merek}\n";
+    public function getInfo() {
+        return "Drum {$this->merek} {$this->jenis}";
     }
 
-    public function infoJenis() {
-        echo "Drum {$this->merek} berjenis {$this->jenis}\n";
+    public function mainkan() {
+        return "Memainkan " . $this->getInfo();
     }
-}
+
+    public function getBunyi() {
+        return "Bunyi standar drum";
+    }
+} 
 
 class DrumAkustik extends Drum {
-    public function bunyi() {
-        echo "{$this->merek}: Boom Takh Takh!\n";
+    public function getBunyi() {
+        return "{$this->merek}: Boom Tak! Tak! Boom Tak!";
     }
     
-    public function __construct($merek) {
+    public function __construct($merek) { 
         parent::__construct($merek, "Akustik");
     }
 }
 
 class DrumElektronik extends Drum {
-    public function bunyi() {
-        echo "{$this->merek}: Beep buup boop!\n";
+    public function getBunyi() {
+        return "{$this->merek}: Beep buup boop!";
     }
 
     public function __construct($merek) {
@@ -39,14 +42,15 @@ class DrumElektronik extends Drum {
     }
 }
 
-echo "=== Drum Akustik ===\n";
 $yamaha = new DrumAkustik("Yamaha");
-$yamaha->mainkan();
-$yamaha->bunyi();
-$yamaha->infoJenis();
+$roland = new DrumElektronik("Roland");
+
+echo "\n=== Drum Akustik ===\n";
+echo $yamaha->getInfo() . "\n";
+echo $yamaha->mainkan() . "\n";
+echo $yamaha->getBunyi() . "\n";
 
 echo "\n=== Drum Elektronik ===\n";
-$roland = new DrumElektronik("Roland");
-$roland->mainkan();
-$roland->bunyi();
-$roland->infoJenis();
+echo $roland->getInfo() . "\n";
+echo $roland->mainkan() . "\n";
+echo $roland->getBunyi() . "\n";
